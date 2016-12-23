@@ -1,6 +1,6 @@
 from parser import Ways
 
-class Response:
+class WayDefault:
     '''
     '''
 
@@ -14,7 +14,8 @@ class Response:
         '''
         '''
         self._raw=snap_dict
+        self._modeled=cls.parse.parse(self._raw['page'])
 
 
 
-Response.set_parser(Ways)
+WayDefault.set_parser(Ways)

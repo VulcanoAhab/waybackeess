@@ -4,6 +4,8 @@ import time
 import re
 import urllib.parse as uparse
 
+from response import WayDefault
+
 
 class Snap:
     '''
@@ -98,4 +100,20 @@ class Snap:
     def fetch_availables(self):
         '''
         '''
-        for snap_url in self._snaps_available:
+        for snap_dict in self._snaps_available:
+            r=request.get(snap_dict['url'])
+            r.raise_for_status()
+            page=r.text
+            snap_dict['page']=page
+            response=WayDefault(snap_dict)
+            yield response
+
+
+    def save_availables(self):
+        '''
+        '''
+        count_save=0
+        for response in self.fetch_availables():
+            esobj=Es(response)
+            esobj.save()
+            count_save+=1
