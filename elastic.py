@@ -2,7 +2,7 @@ from datetime import datetime
 from elasticsearch import Elasticsearch
 
 
-#_ELASTIC = Elasticsearch()
+_ELASTIC = Elasticsearch()
 
 
 class Es:
@@ -17,11 +17,12 @@ class Es:
     def save(self):
         '''
         '''
-        body=self._response.get_parsed()
+        doc=self._response.data
         index=self._response._index
-        _id=self._response._id
-        #_ELASTIC.index(index=index,
-        #                doc_type='backeess',
-        #                id=_id,
-        #                body=doc)
-        print(self._response.get_parsed())
+        timestamp=self._response._timestamp
+        datis=datetime.strptime(timestamp, '%Y%m')
+        doc.update({'timestamp':datis})
+        _ELASTIC.index(index=index,
+                        doc_type='backeess',
+                        id=timestamp,
+                        body=doc)

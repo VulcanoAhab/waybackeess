@@ -1,4 +1,4 @@
-from parser import Ways
+from extractor import Ways
 
 class WayDefault:
     '''
@@ -14,19 +14,27 @@ class WayDefault:
         '''
         '''
         self._raw=snap_dict
-        self._id=snap_dict['timestamp']
+        self._timestamp=snap_dict['timestamp']
         self._index=snap_dict['website']
         self._data=self.parser.parse(self._raw['page'])
 
-    def get_parsed(self):
+    @property
+    def extracted(self):
         '''
         '''
         return {k:v for k,v in self._data.items() if k != 'page'}
 
-    def get_raw_page(self):
+    @property
+    def snapshot(self):
         '''
         '''
         return self._data['page']
+
+    @property
+    def data(self):
+        '''
+        '''
+        return self._data
 
 
 

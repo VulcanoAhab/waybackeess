@@ -131,3 +131,5 @@ class Snap:
             esobj=Es(response)
             esobj.save()
             count_save+=1
+            if count_save % 10 == 0:
+                print('[+] Saved {} snapshots'.format(count_save))

@@ -25,7 +25,7 @@ class Simple:
         '''
         base={
             'page':mined_text,
-            '_parsed_time':datetime.datetime.utcnow(),
+            'retrieved_time':datetime.datetime.utcnow(),
         }
         for field,parser_fn in self._parsers.items():
             base[field]=parser_fn(mined_text)
