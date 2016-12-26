@@ -14,17 +14,19 @@ class WayDefault:
         '''
         '''
         self._raw=snap_dict
-        self._modeled=cls.parse.parse(self._raw['page'])
+        self._id=snap_dict['timestamp']
+        self._index=snap_dict['website']
+        self._data=self.parser.parse(self._raw['page'])
 
     def get_parsed(self):
         '''
         '''
-        return self._modeled
+        return {k:v for k,v in self._data.items() if k != 'page'}
 
-    def get_page(self):
+    def get_raw_page(self):
         '''
         '''
-        return self._raw['page']
+        return self._data['page']
 
 
 
