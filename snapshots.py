@@ -33,7 +33,7 @@ class Snap:
         return '&timestamp='+year+month.zfill(2)
 
 
-    def __init__(self, website):
+    def __init__(self, website, report):
         '''
         '''
         self._months=[]
@@ -45,6 +45,7 @@ class Snap:
         self._snaps_queries=[]
         self._snaps_available=[]
         self.full_year=False
+        self.report=report
 
     def set_years(self, years_list):
         '''
@@ -119,6 +120,7 @@ class Snap:
             r.raise_for_status()
             page=r.text
             snap_dict['page']=page
+            snap_dict['report']=self.report
             response=WayDefault(snap_dict)
             yield response
 

@@ -1,4 +1,19 @@
+from datetime import datetime
+import hashlib
+
 from extractor import Ways
+
+
+class Helpers:
+    '''
+    '''
+    @staticmethod
+    def make_id(website, timestamp):
+        '''
+        '''
+        m=hashlib.md5()
+        m.update(''.join([website, timestamp]).encode())
+        return m.hexdigest()
 
 class WayDefault:
     '''
@@ -10,13 +25,19 @@ class WayDefault:
         '''
         cls.parser=ParserObj
 
+
     def __init__(self, snap_dict):
         '''
         '''
         self._raw=snap_dict
-        self._timestamp=snap_dict['timestamp']
-        self._index=snap_dict['website']
+        self.timestamp=snap_dict['timestamp']
         self._data=self.parser.parse(self._raw['page'])
+        self._data.update({
+        'website':snap_dict['website'],
+        'timestamp':datetime.strptime(self.timestamp, '%Y%m'),
+        })
+        self.id=Helpers.make_id(snap_dict['website'],self.timestamp)
+        self.report=snap_dict['report']
 
     @property
     def extracted(self):
