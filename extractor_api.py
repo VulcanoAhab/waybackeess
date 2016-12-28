@@ -32,10 +32,11 @@ class Simple:
     def mine_words(cls, xshot):
         '''
         '''
-        els=xshot.xpath('.//text()')
-        print(els)
-        return [t.strip()
-                for t in els if t and t.tag != 'script']
+        els=xshot.xpath('.//*')
+        return [e.text.strip()
+                for e in els
+                if ((e.text and len(e.text) > 7 and '\n' not in e.text)
+                    and (e.tag and e.tag not in ['script','link']))]
 
     def __init__(self):
         '''
