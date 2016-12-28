@@ -135,3 +135,4 @@ class Snap:
             count_save+=1
             if count_save % 10 == 0:
                 print('[+] Saved {} snapshots'.format(count_save))
+        print('[+] Done saving availables. Count: {}'.format(count_save))
