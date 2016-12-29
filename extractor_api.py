@@ -42,18 +42,18 @@ class Simple:
     def __init__(self):
         '''
         '''
-        self._parsers={}
+        self._extractors={}
 
-    def set_parser(self, field_name, parserFn, section):
+    def set_extractor(self, field_name, extractorFn, section):
         '''
         '''
-        self._parsers[field_name]={'fn':parserFn,'section':section}
+        self._extractors[field_name]={'fn':extractorFn,'section':section}
 
     @property
     def fields(self):
         '''
         '''
-        return list(self._parsers.keys())
+        return list(self._extractors.keys())
 
     def parse(self, snapshot):
         '''
@@ -71,7 +71,9 @@ class Simple:
             'words':self.mine_words(xshot),
         }
 
-        #extras
-        for field,parser_dict in self._parsers.items():
-            base[field]=parser_dict['fn'](base[parser_dict['section']])
+        #add from extractor file
+        for field,extractor_dict in self._extractors.items():
+            base[field]=extractor_dict['fn'](base[extractor_dict['section']])
         return base
+
+Ways=Simple()
