@@ -18,7 +18,7 @@ class Simple:
         '''
         '''
         els=xshot.xpath('{}'.format(target_path))
-        if not els:return
+        if not els:return []
         return [etree.tostring(el).decode() for el in els]
 
     @classmethod
