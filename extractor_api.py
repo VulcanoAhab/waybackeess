@@ -26,7 +26,8 @@ class Simple:
         '''
         '''
         links=xshot.iterlinks()
-        return [l[-2] for l in links]
+        return [l[-2].split('http://')[-1]
+                for l in links if 'http://' in l[-2]]
 
     @classmethod
     def mine_words(cls, xshot):
