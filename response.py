@@ -3,6 +3,72 @@ import hashlib
 
 from extractor import Ways
 
+class Dateess:
+    '''
+    '''
+    def __init__(self):
+        '''
+        '''
+        self._d={'date_range':
+                    {
+                    'start':{'year':0, 'month':0},
+                    'end':{'year':0, 'month':0}
+                    }
+                }
+    @property
+    def start_year(self):
+        '''
+        '''
+        return self._d['date_range']['start']['year']
+
+    @start_year.setter
+    def start_year(self, year):
+        '''
+        '''
+        self._d['date_range']['start']['year']=year
+
+    @property
+    def end_year(self):
+        '''
+        '''
+        return self._d['date_range']['start']['year']
+
+    @end_year.setter
+    def end_year(self, year):
+        '''
+        '''
+        self._d['date_range']['end']['year']=year
+
+    @property
+    def start_month(self):
+        '''
+        '''
+        return self._d['date_range']['start']['month']
+
+    @start_month.setter
+    def start_month(self, month):
+        '''
+        '''
+        self._d['date_range']['start']['month']=month
+
+    @property
+    def end_month(self):
+        '''
+        '''
+        return self._d['date_range']['end']['month']
+
+    @end_month.setter
+    def end_month(self, month):
+        '''
+        '''
+        self._d['date_range']['end']['month']=month
+
+    def load(self, date_config):
+        '''
+        '''
+        self._d=date_config
+
+
 
 class Helpers:
     '''
@@ -14,6 +80,16 @@ class Helpers:
         m=hashlib.md5()
         m.update(''.join([website, timestamp]).encode())
         return m.hexdigest()
+
+    @staticmethod
+    def year_month(date_input):
+        '''
+        '''
+        if isinstance(date_input, str):
+            return datetime.strptime(date_input, '%Y%m')
+        elif isinstance(date_input, datetime):
+            return date_input.strftime('%Y%m')
+        raise TypeError('Only string or datetime objects')
 
 class WayDefault:
     '''
@@ -34,7 +110,7 @@ class WayDefault:
         self._data=self.parser.parse(self._raw['page'])
         self._data.update({
         'website':snap_dict['website'],
-        'timestamp':datetime.strptime(self.timestamp, '%Y%m'),
+        'timestamp':Helpers.year_month(self.timestamp),
         })
         self.id=Helpers.make_id(snap_dict['website'],self.timestamp)
         self.report=snap_dict['report']
