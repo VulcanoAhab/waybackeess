@@ -68,19 +68,27 @@ class Simple:
     def parse(self, snapshot):
         '''
         '''
-        xshot=html.fromstring(snapshot)
-
-        #basics
-        base={
-            'page':snapshot,
-            'retrieved_time':datetime.datetime.utcnow(),
-            'head':self.mine_element(xshot,'.//head' ),
-            'body':self.mine_element(xshot, './/body[@id="glb-doc"]'),
-            'scripts':'\n\n'.join(self.mine_elements(xshot, './/script')),
-            'links':self.mine_links(xshot),
-            'words':self.mine_words(xshot),
-        }
-
+        try:
+            xshot=html.fromstring(snapshot)
+            #basics
+            base={
+                'page':snapshot,
+                'retrieved_time':datetime.datetime.utcnow(),
+                'head':self.mine_element(xshot,'.//head' ),
+                'body':self.mine_element(xshot, './/body[@id="glb-doc"]'),
+                'scripts':'\n\n'.join(self.mine_elements(xshot, './/script')),
+                'links':self.mine_links(xshot),
+                'words':self.mine_words(xshot),
+            }
+        except:
+            base={
+                'page':snapshot,
+                'retrieved_time':datetime.datetime.utcnow(),
+                'head':'',
+                'scripts':'',
+                'links':[],
+                'words':[]
+                    }
         #add from extractor file
         for field,extractor_dict in self._extractors.items():
             base[field]=extractor_dict['fn'](base[extractor_dict['section']])

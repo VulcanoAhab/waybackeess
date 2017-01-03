@@ -3,7 +3,6 @@ def run_archive(site_url, report_name, dateess_obj):
     '''
     '''
     arquive=Snap(site_url, report_name, dateess_obj)
-    arquive.mount_queries()
     arquive.map_availables()
     arquive.save_availables()
 
@@ -22,6 +21,7 @@ if __name__ == '__main__':
     parser.add_argument('--report', '-r', default='sites')
     parser.add_argument('--date_start', '-s', help='Date format YYYMMDD')
     parser.add_argument('--date_end', '-e', help='Date format YYYMMDD')
+    parser.add_argument('--config', '-c', default='config.json')
 
     args = parser.parse_args()
 
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         dss.end_day=date_end.day
         run_archive(args.url, args.report, dss)
     else:
-        config_file=open('config.json')
+        config_file=open(args.config)
         configs=json.load(config_file)
         config_file.close()
         for site,config in configs.items():
