@@ -101,7 +101,7 @@ class Snap:
             self._snaps_available.append(snap_dict)
             count_mapped+=1
             if count_mapped % 10 == 0:
-                print('[+] Mapped {} snapshots'.format(count_mapped))
+                print(' Mapped {} snapshots'.format(count_mapped))
             unique_urls.add(snap_url)
             time.sleep(0.001)
         print('[+] Done mapping {} snapshots'.format(count_mapped))
