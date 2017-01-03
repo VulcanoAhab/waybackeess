@@ -1,9 +1,13 @@
 import datetime
+import re
 from lxml import html, etree
+
+
 
 class Simple:
     '''
     '''
+    _find_domain=re.compile(r'https?\:\/\/(?P<value>[^\/]+)')
 
     @classmethod
     def mine_element(cls, xshot, target_path):
@@ -25,8 +29,14 @@ class Simple:
     def mine_links(cls, xshot):
         '''
         '''
+        def extract(ustring):
+            '''
+            '''
+            domain=cls._find_domain.search(ustring)
+            if not domain:return
+            return domain.group('value')
         links=xshot.iterlinks()
-        return [l[-2].split('http://')[-1]
+        return [extract(l[-2])
                 for l in links if 'http://' in l[-2]]
 
     @classmethod

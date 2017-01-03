@@ -4,6 +4,7 @@ import time
 import re
 import urllib.parse as uparse
 
+from date import Dateess, archive_timestamp
 from response import WayDefault
 from elastic import Es
 
@@ -12,6 +13,7 @@ class Snap:
     '''
 
     _base='http://archive.org/wayback/available?url='
+
 
     @classmethod
     def _mount_request(cls, website, timestamp):
@@ -27,56 +29,32 @@ class Snap:
         return request_dict
 
     @classmethod
-    def _mount_stamp(cls, year, month):
+    def _mount_stamp(cls, year, month, day):
         '''
         '''
-        return '&timestamp='+year+month.zfill(2)
+        return '&timestamp='+year+month.zfill(2)+day.zfill(2)
 
 
-    def __init__(self, website, report):
+
+    def __init__(self, website, report_name, dateess_obj):
         '''
         '''
-        self._months=[]
-        self._years=[]
-        self._days=[]
 
         self.website=website
         self._times=[]
         self._snaps_queries=[]
         self._snaps_available=[]
-        self.full_year=False
-        self.report=report
+        self.report=report_name
+        self.dss=dateess_obj
 
-    def set_years(self, years_list):
-        '''
-        '''
-        self._years=years_list
-
-    def set_months(self, months_list):
-        '''
-        '''
-        self._months=months_list
-
-
-    def set_days(self, days_list):
-        '''
-        '''
-        raise NotImplemented('[+] Days options not avaible yet')
 
     def _dates_list(self):
         '''
         '''
-        now=datetime.datetime.utcnow()
-        if not self._years:
-            self._years=[now.year,]
-        if not self._months:
-            if self.full_year==False:
-                self._months=[now.month,]
-            else:
-                self._months=list(range(1,13))
-        self._times=[ (str(year),str(month))
-                for year in self._years
-                for month in self._months]
+        self._times=[ (str(year),str(month),str(day))
+                for year in self.dss.year_range
+                for month in self.dss.month_range
+                for day in self.dss.day_range]
 
     def mount_queries(self):
         '''
@@ -85,6 +63,9 @@ class Snap:
         self._snaps_queries=[
             Snap._mount_request(self.website, Snap._mount_stamp(*t))
             for t in self._times]
+        qty=len(self._snaps_queries)
+        msg='[+] Queries {}. Target: {}'.format(qty, self.website)
+        print(msg)
 
     @property
     def snaps_queries(self):
@@ -95,21 +76,35 @@ class Snap:
     def map_availables(self):
         '''
         '''
-        for request_dict in self._snaps_queries:
+        count_mapped=0
+        unique_urls=set()
+        for n,request_dict in enumerate(self._snaps_queries):
             url=request_dict['url']
             r=requests.get(url)
             r.raise_for_status()
             archive=r.json()
             snap=archive['archived_snapshots']
+            size='[+] Requested: * {} *'.format(n)
+            lsize=len(size)
+            backis=lsize*'\r'
+            print(backis+size, end='')
             if not snap:continue
             snap_url=snap['closest']['url']
+            if snap_url in unique_urls:continue
+            snap_stamp=snap['closest']['timestamp']
             snap_dict={
                 'url':snap_url,
-                'timestamp':request_dict['timestamp'],
+                'requested_timestamp':request_dict['timestamp'],
+                'timestamp':archive_timestamp(snap_stamp),
                 'website':request_dict['website'],
             }
             self._snaps_available.append(snap_dict)
+            count_mapped+=1
+            if count_mapped % 10 == 0:
+                print('[+] Mapped {} snapshots'.format(count_mapped))
+            unique_urls.add(snap_url)
             time.sleep(0.001)
+        print('[+] Done mapping {} snapshots'.format(count_mapped))
 
 
     def fetch_availables(self):
