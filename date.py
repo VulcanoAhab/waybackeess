@@ -138,7 +138,7 @@ class Dateess:
             return way_date(new_date)
         ds=self.start_date
         de=self.end_date
-        delta=ds-de
+        delta=de-ds
         return [sumday(ds,dn) for dn in range(delta.days+1)]
 
     @property
