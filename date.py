@@ -2,7 +2,23 @@
 Ugly - will be improved soon
 '''
 
-from datetime import datetime
+from datetime import datetime,timedelta
+
+def archive_timestamp(timestamp):
+    '''
+    '''
+    _d=datetime.strptime(timestamp, '%Y%m%d%H%M%S')
+    return _d.strftime('%Y%m%d')
+
+
+def way_date(date_input):
+    '''
+    '''
+    if isinstance(date_input, str):
+        return datetime.strptime(date_input, '%Y%m%d')
+    elif isinstance(date_input, datetime):
+        return date_input.strftime('%Y%m%d')
+    raise TypeError('Only string or datetime objects')
 
 class Dateess:
     '''
@@ -112,29 +128,19 @@ class Dateess:
                         day=self.end_day)
 
     @property
-    def year_range(self):
+    def date_range(self):
         '''
         '''
-        return range(self.start_year, self.end_year+1)
+        def sumday(date, days_size):
+            '''
+            '''
+            new_date=date+timedelta(days=days_size)
+            return way_date(new_date)
+        ds=self.start_date
+        de=self.end_date
+        delta=ds-de
+        return [sumday(ds,dn) for dn in range(delta.days+1)]
 
-    @property
-    def month_range(self):
-        '''
-        '''
-        if not self.start_month:
-            if self.full_year:return range(1,13)
-            return []
-        return range(self.start_month, self.end_month+1)
-
-
-    @property
-    def day_range(self):
-        '''
-        '''
-        if not self.start_day:
-            if self.full_year:return range(1,32)
-            return []
-        return range(self.start_day, self.end_day+1)
     @property
     def archive_timestamp(self):
         '''
@@ -182,19 +188,3 @@ class Dateess:
             dss.start_day=startis['day']
             dss.end_day=endis['day']
         return dss
-
-def archive_timestamp(timestamp):
-    '''
-    '''
-    _d=datetime.strptime(timestamp, '%Y%m%d%H%M%S')
-    return _d.strftime('%Y%m%d')
-
-
-def way_date(date_input):
-    '''
-    '''
-    if isinstance(date_input, str):
-        return datetime.strptime(date_input, '%Y%m%d')
-    elif isinstance(date_input, datetime):
-        return date_input.strftime('%Y%m%d')
-    raise TypeError('Only string or datetime objects')
