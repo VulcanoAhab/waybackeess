@@ -91,5 +91,5 @@ python3 research.py -c config_file_name.json
 
 ```
 
-Once is running, access to Kibana interface:
+Once is running, access the Kibana interface:
 http://127.0.0.1:5601
