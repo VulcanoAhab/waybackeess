@@ -1,6 +1,6 @@
 ## About
 
-** waybackeess ** was build to be a fast and easy way to fetch and analyze web archive website's snapshots. It is a simple python client API integrated with Elastic Search and Kibana, so you can research semantically and visualize the data.
+**waybackeess** was build to be a fast and easy way to fetch and analyze web archive website's snapshots. It is a simple python client API integrated with Elastic Search and Kibana, so you can research semantically and visualize the data.
 
 
 ### Installation
@@ -91,5 +91,5 @@ python3 research.py -c config_file_name.json
 
 ```
 
-Once is running access Kibana interface:
+Once is running, access to Kibana interface:
 http://127.0.0.1:5601
