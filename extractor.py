@@ -10,18 +10,18 @@ from extractor_api import Ways
 #         b. head
 #         c. scripts
 
-rex_analytics=re.compile(r'(?P<data>UA-[\w\d]+(?:-\d+)?)', re.I)
-face_app=re.compile(r'"fb\:app\_id" content="(?P<data>[^"]+)',re.I)
-face_admin=re.compile(r'"fb\:admins" content="(?P<data>[^"]+)', re.I)
-email_finder=re.compile(r'(?P<data>[\w\-\.\_\d]+@[\w\.]+)')
+rex_analytics=re.compile(r"(?P<data>UA-[\w\d]+(?:-\d+)?)", re.I)
+face_app=re.compile(r""fb\:app\_id" content="(?P<data>[^"]+)",re.I)
+face_admin=re.compile(r""fb\:admins" content="(?P<data>[^"]+)", re.I)
+email_finder=re.compile(r"(?P<data>[\w\-\.\_\d]+@[\w\.]+)")
 
 def miner(target_string, fn):
-    '''
-    '''
+    """
+    """
     if not target_string:return
     m=fn.search(target_string)
     if not m:return
-    return m.group('data')
+    return m.group("data")
 
 
 mine_analytics=partial(miner, fn=rex_analytics)
@@ -32,7 +32,7 @@ mine_emails=partial(miner, fn=email_finder)
 
 
 
-Ways.set_extractor('google_analytics', mine_analytics, 'scripts')
-Ways.set_extractor('facebook_app_id',mine_app_id, 'head')
-Ways.set_extractor('facebook_admin_id',mine_admin_id, 'head')
-Ways.set_extractor('generic_email',mine_emails, 'page')
+Ways.set_extractor("google_analytics", mine_analytics, "scripts")
+Ways.set_extractor("facebook_app_id",mine_app_id, "head")
+Ways.set_extractor("facebook_admin_id",mine_admin_id, "head")
+Ways.set_extractor("generic_email",mine_emails, "page")
