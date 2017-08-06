@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.getcwd()))
 
-from snapGet import Availables
+from snapGet import Availables, FetchSnaps
 import unittest
 import requests
 
@@ -14,7 +14,6 @@ class TestAvailables(unittest.TestCase):
         """
         self.targetSite="uol.com.br"
         self._availables=Availables(self.targetSite)
-
 
     def testFetch(self):
         """
@@ -37,7 +36,6 @@ class TestAvailables(unittest.TestCase):
         #response
         self.assertTrue(len(self._availables.response["snaps"])>0)
 
-
     def testHeader(self):
         """
         """
@@ -50,6 +48,23 @@ class TestAvailables(unittest.TestCase):
                          "[-] FAIL HEADERS: {}".format(respUserAg))
 
 
+class TestFetchSnaps(unittest.TestCase):
+    """
+    """
+
+    def setUp(self):
+        """
+        """
+        self.targetSite="uol.com.br"
+        self._availables=Availables(self.targetSite)
+        self._availables.fetch()
+        self._snaps=FetchSnaps(self._availables.response["snaps"], limit=10)
+
+    def testRun(self):
+        """
+        """
+        self._snaps.run()
+        print(self._snaps.response)
 
 # == command line
 if __name__ == "__main__":

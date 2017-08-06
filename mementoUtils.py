@@ -23,6 +23,13 @@ class Reader:
             resDict[keyValue]=resValue
         return resDict
 
+    @staticmethod
+    def _parseDate(dateIn):
+        """
+        """
+        dateFormat="%a, %d %b %Y %H:%M:%S GMT"
+        return datetime.datetime.strptime(dateIn, dateFormat)
+
     def __init__(self, mementoData):
         """
         """
@@ -40,6 +47,8 @@ class Reader:
             self._baseList.append(valuesDict)
             if (not valuesDict["rel"]
                or "memento" not in valuesDict["rel"]):continue
+            if valuesDict.get("date"):
+                valuesDict["date"]=Reader._parseDate(valuesDict["date"])
             self._links.append(valuesDict)
 
     @property
