@@ -86,6 +86,7 @@ class Availables(requests.Session):
                 if self.end:
                     respDate=respLink["date"]
                     if respDate>self.end:continue
+                respLink["website"]=self.website
                 self._resp["response"]["snaps"].append(respLink)
         except Exception as e:
             print("[-] {}. Fail to fetch: {}".format(e, self.query))
@@ -108,7 +109,6 @@ class FetchSnaps(requests.Session):
         targets : list | format => {
                             "url":..., - required
                             "date":.., - required
-                            "queryTime":..,
                             "website":..,
                         }
         """
@@ -131,8 +131,6 @@ class FetchSnaps(requests.Session):
         """
         targets=self._targets
         if self.limit:
-            print(type(targets))
-            return
             targets=targets[:self.limit]
         for snapDict in targets:
             response=self.get(snapDict["url"])
@@ -144,7 +142,6 @@ class FetchSnaps(requests.Session):
                                     "queryTime":datetime.datetime.utcnow(),
                                     "date":snapDict["date"],
                                     "website":snapDict.get("website"),
-                                    "mappingTime":snapDict.get("queryTime")
                                     })
             time.sleep(0.01)
 

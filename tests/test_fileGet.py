@@ -55,16 +55,22 @@ class TestFetchSnaps(unittest.TestCase):
     def setUp(self):
         """
         """
-        self.targetSite="uol.com.br"
+        self.targetSite="www.uol.com.br"
+        self.snapLimit=1
         self._availables=Availables(self.targetSite)
         self._availables.fetch()
-        self._snaps=FetchSnaps(self._availables.response["snaps"], limit=10)
+        self._snaps=FetchSnaps(self._availables.response["snaps"],
+                                                limit=self.snapLimit)
 
     def testRun(self):
         """
         """
         self._snaps.run()
-        print(self._snaps.response)
+        responseList=self._snaps.response
+        responseFirst=responseList[0]
+        self.assertEqual(self.snapLimit, len(responseList))
+        keys={"url", "snapshot", "status", "website"}
+        for k in keys:self.assertIn(k, responseFirst)
 
 # == command line
 if __name__ == "__main__":
