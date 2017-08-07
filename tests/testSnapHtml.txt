@@ -1,0 +1,182 @@
+<html>
+<head><script type="text/javascript" src="/static/js/analytics.js?v=1500596387.0" charset="utf-8"></script>
+
+<script type="text/javascript">archive_analytics.values.service='wb';archive_analytics.values.server_name='wwwb-app18.us.archive.org';archive_analytics.values.server_ms=1694;</script><script type="text/javascript" src="/static/js/wbhack.js?v=1500596387.0" charset="utf-8"></script>
+
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link rel="stylesheet" type="text/css" href="/static/css/banner-styles.css?v=1500596387.0" />
+<link rel="stylesheet" type="text/css" href="/static/css/iconochive.css?v=1500596387.0" />
+
+<!-- End Wayback Rewrite JS Include --><title>Universo Online</title>
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="description" content="O Universo Online é o maior provedor de acesso à Internet do Brasil. É também o maior provedor de conteúdo em língua portuguesa do mundo.">
+<meta name="keywords" content="Esporte, esporte, Jornais, Revistas, Biblioteca, Brasil Online, Classificados, Compras, Computador, Corpo e Saúde, Crianças, Diversão e Arte, Economia, Internet, Jogos, Novelas, Rádios e TVs, Tempo e Trânsito, Últimas Notícias, Viagem, , jornalismo, informação, notícia, jornais, revistas, cultura, entretenimento, lazer, opinião, análise, jogos, internet, televisão, fotografia, arte, imagem, som, áudio, rádio">
+<script language="javascript">
+<!--
+function Remote() {
+var remote = null
+remote = window.open('','promocao','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,menubar=no,width=290,height=250')
+if (remote != null) {
+if (remote.opener == null) {
+remote.opener = self
+}
+remote.location.href = 'http://web.archive.org/web/19980526174448/http://www.uol.com.br/janela.htm'
+}
+}
+Remote();
+// -->
+</script>
+
+
+</head>
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF">
+<a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/images/univtool.map"><img src="/web/19980526174448im_/http://www.uol.com.br:80/images/prettool.gif" border="0" ismap></a>
+
+<table width="600" border="0" cellpadding="0" cellspacing="0">
+<tr><td width="170" valign="top" align="center" bgcolor="#003366"><a href="/web/19980526174448/http://www.uol.com.br:80/exped.htm"><img src="/web/19980526174448im_/http://www.uol.com.br:80/homeuol/logo03.gif" width="132" height="122" border="0" vspace="5"></a></td>
+<td width="320" valign="top" bgcolor="#003366">
+<table width="310" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="67"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/oestadoma/"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/c_maranhao.gif" border="0" width="62" height="54" alt="O Estado do Maranhão"></a></td>
+<td width="67"><a href="http://web.archive.org/web/19980526174448/http://www2.uol.com.br/observatorio/"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/c_observatorio.gif" border="0" width="62" height="54" alt="Observatório da Imprensa"></a>
+</td>
+<td width="67"><a href="http://web.archive.org/web/19980526174448/http://www2.uol.com.br/ferrs/"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/c_ferrs.gif" border="0" width="62" height="54" alt="Ferrs CD on line"></a>
+</td>
+<td width="67"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/deonde.htm"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/c_assineuol.gif" border="0" width="62" height="54" alt="Assine o UOL"></a>
+</td>
+</tr>
+<tr>
+<td><a href="http://web.archive.org/web/19980526174448/http://www2.uol.com.br/trianon/"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/c_trianon.gif" border="0" width="62" height="54" alt="Trianon"></a>
+</td>
+<td><a href="http://web.archive.org/web/19980526174448/http://www2.uol.com.br/fashion/"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/c_fashion.gif" border="0" width="62" height="54" alt="Morumbi Fashion"></a>
+</td>
+<td><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/servico/linhalivre.htm"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/c_ocupado.gif" border="0" width="62" height="54" alt="Linha livre"></a>
+</td>
+<td><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/servico/pesquol.htm"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/c_pesquisa.gif" border="0" width="62" height="54" alt="Pesquisa sobre o UOL"></a>
+</td>
+</tr></table>
+
+</td>
+<td width="110" bgcolor="#FFCC00" align="center" rowspan="3"><img src="/web/19980526174448im_/http://www.uol.com.br:80/homeuol/menu03.gif" border="0" width="108" height="330" usemap="#menuv" vspace="0"><map name="menuv">
+<area shape="RECT" coords="6,12,92,22" href="http://web.archive.org/web/19980526174448/http://cf3.uol.com.br:8000/amigosvirtuais">
+<area shape="RECT" coords="9,27,61,35" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/bibliot/">
+<area shape="RECT" coords="6,40,77,49" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/bol/">
+<area shape="RECT" coords="8,55,38,63" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/busca/">
+<area shape="RECT" coords="6,68,79,77" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/clas/">
+<area shape="RECT" coords="8,82,53,91" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/compra/">
+<area shape="RECT" coords="6,97,81,105" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/saude/">
+<area shape="RECT" coords="6,110,53,120" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/criancas/">
+<area shape="RECT" coords="7,125,89,133" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/diversao/">
+<area shape="RECT" coords="7,138,57,148" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/economia/">
+<area shape="RECT" coords="9,153,48,161" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/esporte/">
+<area shape="RECT" coords="7,166,40,175" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/jogos/">
+<area shape="RECT" coords="7,181,47,189" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/jornais/">
+<area shape="RECT" coords="5,195,81,203" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/internet/">
+<area shape="RECT" coords="8,209,48,217" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/novela/">
+<area shape="RECT" coords="8,222,84,231" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/person/">
+<area shape="RECT" coords="10,236,68,245" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/radiotv/">
+<area shape="RECT" coords="7,250,51,259" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/revistas.shl">
+<area shape="RECT" coords="6,264,97,273" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/tempo/">
+<area shape="RECT" coords="6,278,95,288" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/ultnot/">
+<area shape="RECT" coords="9,293,44,301" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/viagem/">
+<area shape="RECT" coords="6,306,101,316" href="http://web.archive.org/web/19980526174448/http://sites.uol.com.br/">
+</map></td></tr>
+<tr><td align="center"><font size="-2" color="#FFFFFF">Ter&ccedil;a, 26 de maio de 1998<br></font></td>
+<td valign="top"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/esporte/"><font size="1" face="arial">ESPORTE</font></a><br><font size="4" face="arial">Kuerten vence por 3 a 0 <br>na estr&eacute;ia em Roland Garros</font></td></tr>
+<tr><td colspan="2" valign="bottom"><table width="490" border="0" cellspacing="0" cellpadding="1" bgcolor="#FF3300">
+<tr><td width="040"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/pda"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/i_pda.gif" border="0" width="37" height="37"></a></td><td width="130" valign="top"><font size="1" face="arial"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/pda"><b>P&Atilde;O DE A&Ccedil;&Uacute;CAR</b></a><font size="2">&nbsp;<br></font>Fa&ccedil;a suas compras<br>sem sair de casa</td>
+<td width="040"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/bol/pol/ult260598043.htm"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/i_bol3.gif" border="0" width="37" height="37"></a></td><td width="130" valign="top"><font size="1" face="arial"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/bol/pol/ult260598043.htm"><b>NORDESTE COM FOME</b></a><font size="2">&nbsp;<br></font>MST fecha rodovia <br>para saquear caminh&otilde;es</td>
+<td rowspan="3" width="90" valign="bottom"><font size="1"></font><a href="http://web.archive.org/web/19980526174448/http://chatter.uol.com.br/batepapo/convidjava.htm"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/v_mercedes.jpg" border="0" width="90" height="125"></a></td>
+<td rowspan="3" valign="bottom" width="60"><font size="1" face="arial"><a href="http://web.archive.org/web/19980526174448/http://chatter.uol.com.br/batepapo/convidjava.htm">ENTREVISTA AGORA</a><br>Mercedes Sosa e Conselho da Terra falam sobre a Carta da Terra <br></font></td></tr>
+<tr><td width="040"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/capricho"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/i_capricho.gif" border="0" width="37" height="37"></a></td><td width="130" valign="top"><font size="1" face="arial"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/capricho"><b>CAPRICHO</b></a><font size="2">&nbsp;<br></font>Os elogios do Hanson<br>a suas f&atilde;s brasileiras</td>
+<td width="040"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/esporte/"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/romario.jpg" border="0" width="37" height="37"></a></td><td width="130" valign="top"><font size="1" face="arial"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/esporte/"><b>SELE&Ccedil;&Atilde;O</b></a><font size="2">&nbsp;<br></font>Rom&aacute;rio vai a campo,<br>mas n&atilde;o treina com bola</td></tr>
+<tr><td width="040"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/veja"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/i_veja05.gif" border="0" width="37" height="37"></a></td><td width="130" valign="top"><font size="1" face="arial"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/veja"><b>VEJA</b></a><font size="2">&nbsp;<br></font>Jovens perdem a luta<br>contra as drogas</td>
+<td width="040"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/odia/"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/homeuol/i_dia.gif" border="0" width="37" height="37"></a></td><td width="130" valign="top"><font size="1" face="arial"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/odia/"><b>&Eacute; O TCHAN!</b></a><font size="2">&nbsp;<br></font>Carla Perez n&atilde;o poupa<br>nem Silvio Santos</td></tr>
+</table></td></tr>
+
+</table>
+
+<table width="600" border="0" cellpadding="0" cellspacing="0"><tr>
+<td width="187"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/cgi-bin/go2home/go2home.cgi?posicao=uolcapae"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/anuncio/goto/uolcapae.gif" align="bottom" border="0"></a>
+</td>
+<td width="187"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/cgi-bin/go2home/go2home.cgi?posicao=uolcapac18"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/anuncio/goto/uolcapac18.gif" align="bottom" border="0" width="181" height="60"></a>
+</td>
+<td width="187"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/cgi-bin/go2home/go2home.cgi?posicao=uolcapad"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/anuncio/goto/uolcapad.gif" align="bottom" border="0" width="181" height="60"></a>
+</td>
+<td width="36"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/cgi-bin/go2home/go2home.cgi?posicao=anuncie"><img src="http://web.archive.org/web/19980526174448im_/http://www.uol.com.br/anuncio/anuncie2.gif" align="bottom" width="36" height="60" border="0" vspace="3"></a>
+</td>
+</tr></table>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0">
+
+<tr>
+
+<td align="center" width="600">
+
+<table width="600" cellpadding="0" cellspacing="0" border="0">
+<tr><td width="140">&nbsp;</td><td width="320" align="center">
+<font size="2">
+<br><a href="/web/19980526174448/http://www.uol.com.br:80/menuprin.htm">Menu</a> |
+<a href="/web/19980526174448/http://www.uol.com.br:80/correio/">Correio</a> |
+<a href="http://web.archive.org/web/19980526174448/http://chatter.uol.com.br/batepapo/">Bate-papo</a> |
+<a href="/web/19980526174448/http://www.uol.com.br:80/forum/index.htm">F&oacute;rum</a>
+<br><a href="/web/19980526174448/http://www.uol.com.br:80/servico/">Servi&ccedil;o ao Assinante</a> |
+<a href="http://web.archive.org/web/19980526174448/http://cf1.uol.com.br:8000/cgi-bin/cgispawn.exe?spawn=\customhp\customhp.exe&amp;onde=2">Meu Universo</a> |
+<a href="http://web.archive.org/web/19980526174448/http://www.radaruol.com.br/">Radar UOL</a>
+</font></td>
+<td width="140" align="center" valign="middle"><font size="2"><a href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/novidade/release.htm">English</a></font></td></tr></table>
+
+<p><font size="2">
+<a href="/web/19980526174448/http://www.uol.com.br:80/amigosvirtuais/">Amigos Virtuais</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/bibliot/">Biblioteca</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/bol/">Brasil Online</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/busca/">Busca</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/clas/">Classificados</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/compra/">Compras</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/saude/">Corpo e Sa&uacute;de</a>
+<br><a href="/web/19980526174448/http://www.uol.com.br:80/criancas/">Crian&ccedil;as</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/diversao/">Divers&atilde;o e Arte</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/economia/">Economia</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/esporte/">Esporte</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/jogos/">Jogos</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/jornais.htm">Jornais</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/internet/">Mundo Digital</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/novela/">Novelas</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/person/">Personalidades</a>
+<br><a href="/web/19980526174448/http://www.uol.com.br:80/radiotv/">R&aacute;dios e TVs</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/revistas.shl">Revistas</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/tempo/">Tempo e Trânsito</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/ultnot/">&Uacute;ltimas Not&iacute;cias</a>
+| <a href="/web/19980526174448/http://www.uol.com.br:80/viagem/">Viagem</a>
+| <a href="http://web.archive.org/web/19980526174448/http://sites.uol.com.br/">Web Sites Pessoais</a>
+<br>
+</table>
+</font></center>
+</td></tr>
+</table>
+<p>
+<table border="0" cellpadding="0" cellspacing="0" width="600">
+<tr>
+<td align="center" width="28%"><font size="-2" face="arial">Clique no botão ao lado para estender a capacidade multimídia de seu
+navegador de Internet:</font></td>
+<td align="center" width="22%"><a href="/web/19980526174448/http://www.uol.com.br:80/internet/beta/plugins.htm"><img src="/web/19980526174448im_/http://www.uol.com.br:80/homeuol/plug_ins.gif" width="88" heigh="31" border="0"></a></td>
+<td align="center" width="28%"><font size="-2" face="arial">Para ver melhor o Universo Online, clique no botão ao lado para baixar o
+Internet Explorer.</font></td>
+<td align="center" width="22%"><a href="/web/19980526174448/http://www.uol.com.br:80/servico/msie.htm"><img src="/web/19980526174448im_/http://www.uol.com.br:80/homeuol/ie4logo.gif" border="0"></a></td>
+</tr>
+</table>
+
+
+<map name="uolcapae">
+<area shape="rect" coords="134, 40, 175, 53" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/cgi-bin/go2home/go2home.cgi?posicao=uolcapae4">
+<area shape="rect" coords="63, 39, 130, 54" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/cgi-bin/go2home/go2home.cgi?posicao=uolcapae3">
+<area shape="rect" coords="5, 40, 58, 54" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/cgi-bin/go2home/go2home.cgi?posicao=uolcapae2">
+<area shape="rect" coords="8, 3, 69, 37" href="http://web.archive.org/web/19980526174448/http://www.uol.com.br/cgi-bin/go2home/go2home.cgi?posicao=uolcapae">
+</map>
+
+</body>
+</html>
