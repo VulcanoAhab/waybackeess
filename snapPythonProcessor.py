@@ -1,4 +1,5 @@
 import re
+import string
 import tldextract
 import collections
 from lxml import html
@@ -10,6 +11,7 @@ class Basic:
     extraction
     """
     _wayLink=re.compile("(?:http://web.archive.org)?/web/\d+(?:im_)?/", re.I)
+    _cleanText=re.compile(r"["+string.punctuation+"\n]+")
 
     _tdlex=tldextract.TLDExtract()
 
@@ -32,12 +34,14 @@ class Basic:
         """
         self._raw=pageIn
         self._xis=html.fromstring(pageIn)
-
+        self._urls=collections.defaultdict(list)
+        self._text=None
+        self._title=None
 
     def processUrls(self):
         """
         """
-        urlsContainer=collections.defaultdict(list)
+
         _elsTarget={
             "href":"//@href",
             "src":"//@src",
@@ -55,9 +59,50 @@ class Basic:
                 #process urls
                 for utemp in ustemp:
                     utemp=self.cleanUrl(utemp)
-                    urlsContainer[attr].append({
+                    self._urls[attr].append({
                         "url":utemp,
                         "domain":self._getDomain(utemp),
 
                         })
-        return urlsContainer
+    @property
+    def urls(self, force=False):
+        """
+        """
+        if len(self._urls) and not force:return self._urls
+        self.processUrls()
+        return self._urls
+
+    def processText(self, minLen=4):
+        """
+        """
+        texts=[]
+        noScript="//*[text() and not(@type='text/javascript') "\
+                 "and not(contains(text(),'<!--'))]/text()"
+        for text in self._xis.xpath(noScript):
+            text=self._cleanText.sub("",text).replace("\\","")
+            if not text or len(text)<minLen:continue
+            texts.append(text)
+        self._text=" ".join(texts)
+
+    @property
+    def text(self, force=False):
+        """
+        """
+        if self._text and not force:return self._text
+        self.processText()
+        return self._text
+
+    def processTitle(self):
+        """
+        """
+        title=self._xis.xpath("//title/text()")
+        if not title:return
+        self._title=title[0]
+
+    @property
+    def title(self, force=False):
+        """
+        """
+        if self._title and not force: return self._title
+        self.processTitle()
+        return self._title

@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.getcwd()))
 
-from snapParse import Basic
+from snapPythonProcessor import Basic
 import unittest
 
 class TestBasic(unittest.TestCase):
@@ -39,13 +39,23 @@ class TestBasic(unittest.TestCase):
         """
         shouldKeys={"href", "src"} #no test for data-src
         uDictKeys={"url", "domain"}
-        testUrls=self._basic.processUrls()
+        testUrls=self._basic.urls
         for sk in shouldKeys:
             self.assertIn(sk, testUrls)
             self.assertEqual(self._counts[sk], len(testUrls[sk]),
                              "[-] Fail Count: {}".format(sk))
             for uk in uDictKeys:
                 self.assertIn(uk, testUrls[sk][0])
+
+    def testProcessTitle(self):
+        """
+        """
+        self.assertEqual("Universo Online", self._basic.title)
+
+    def testProcessText(self):
+        """
+        """
+        print(self._basic.text)
 
 # == command line
 if __name__ == "__main__":

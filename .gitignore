@@ -2,6 +2,11 @@
 extractor.py
 config.json
 
+metastore_db/
+derby.log
+*.log
+spark-warehouse/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
