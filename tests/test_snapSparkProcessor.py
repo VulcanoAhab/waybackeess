@@ -35,10 +35,11 @@ class TestBasic(unittest.TestCase):
         self._fd.close()
         self._basic.close()
 
-    def test_rdd(self):
+    def test_processors(self):
         """
         """
-        print(self._basic.rdd)
+        self._basic.processUrls()
+        self._basic.processWords()
 
 # == command line
 if __name__ == "__main__":

@@ -11,9 +11,11 @@ from pyspark.sql import Row
 from pyspark.sql import SQLContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import udf
-from pyspark.sql.types import StringType, TimestampTime
+from pyspark.sql.types import StringType, TimestampType
 
 # == udf[s]
+
+_wayLink=re.compile("(?:http://web.archive.org)?/web/\d+(?:im_)?/", re.I)
 
 
 
@@ -29,7 +31,9 @@ class Basic:
         .appName(_appName)\
         .getOrCreate()
 
-    _wayLink=re.compile("(?:http://web.archive.org)?/web/\d+(?:im_)?/", re.I)
+    _sc=_spark.sparkContext
+    _sc.setLogLevel("ERROR")
+
 
     _frameRow=Row(
         "raw",
@@ -58,53 +62,22 @@ class Basic:
         domain=cls._getDomain(urlClean)
         return self._urlsRow(url=urlClean, domain=domain)
 
-    def __init__(self, pageIn, website, created_at):
+    def __init__(self, pageIn, website=None, created_at=None):
         """
         """
 
         self._raw=pageIn
-        self._website=webiste
+        self._website=website
         self._created=created_at
 
-        self._rdd=self._spark.sparkContext.parallelize([pageIn])
+        self._rdd=self._sc.parallelize([pageIn])
         self._rdd.cache()
         self._df=None
-
-    def findUrls(self, textIn):
-        """
-        """
-        _xis=html.fromstring(textIn)
-
-        _elsTarget={
-            "href":"//@href",
-            "src":"//@src",
-            "data-src":"//@data-src"
-        }
-        _filterNot={
-            lambda x:not x.startswith("/static/"),
-        }
-
-        #build lists
-        _urls={}
-        for attr,xpas in _elsTarget.items():
-                #mine and filter urls
-                ustemp=_xis.xpath(xpas)
-                for condition in _filterNot:
-                    ustemp=filter(condition, ustemp)
-                #process urls
-                for utemp in ustemp:
-                    utemp=self.cleanUrl(utemp)
-                    if attr not in _urls:_urls.update({attr:[]})
-                    _urls[attr].append({
-                        "url":utemp,
-                        "domain":self._getDomain(utemp),
-                        })
-        return _urls
 
     def processWords(self):
         """
         """
-        _words=self._rdd.flatMap(lambda x: x.split(" "))\
+        _words=self._rdd.flatMap(lambda x: re.split(r"\s+",x))\
                                 .map(lambda x: (x,1))\
                                 .reduceByKey(add)
         self._wordsCount=_words.collect()
@@ -113,8 +86,8 @@ class Basic:
     def processUrls(self):
         """
         """
-        _urls=self._rdd.flatMap(lambda x:self.findUrls(x))\
-                                    .map(lambda x:self.toUrlObj(x))
+        _urls=self._rdd.flatMap(lambda x:re.findall(r"http://[\w\d\/\-\.\:]+", x))\
+                                    .map(lambda x:_wayLink.sub("",x))
         self._urls=_urls.collect()
         print(self._urls)
 
