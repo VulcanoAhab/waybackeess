@@ -46,7 +46,7 @@ def _toUrlObj(urlIn):
 
 
 
-def _toSnapRow(textIn, website=None, created_at=None):
+def toSnapRow(textIn, website=None, created_at=None):
     """
     """
     noScript="//*[text() and not(@type='text/javascript') "\
@@ -63,10 +63,10 @@ def _toSnapRow(textIn, website=None, created_at=None):
     _text=" ".join(texts)
     #mine url
     rawUrls=_grabUrl.findall(textIn)
-    filteredUrls=filter(lambda x:not x.startswith("/static/"),rawUrls)
-    urlObjs=map(_toUrlObj,filteredUrls)
-    onlyRow=Row(urls=urlObjs, text=_text)
-    return onlyRow
+    filteredUrls=list(filter(lambda x:not x.startswith("/static/"),rawUrls))
+    #urlObjs=map(_toUrlObj,filteredUrls)
+    #onlyRow=Row(urls=filteredUrls, text=_text)
+    return [filteredUrls, _text]
 
 
 ## -- call functions
@@ -77,7 +77,7 @@ def buildDataFrame(websiteSnaps, sparkContext=None):
     SparkDo.setAppName="waybackeess"
     _sc=sparkContext if sparkContext else SparkDo.devContext()
     _rdd=_sc.parallelize([websiteSnaps])
-    _snapsRdd=_rdd.flatMap(lambda x: _toSnapRow(x))
+    _snapsRdd=_rdd.flatMap(lambda x: toSnapRow(x))
     print(_snapsRdd.collect())
 
     # build DataFrame
