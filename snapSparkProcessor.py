@@ -64,10 +64,9 @@ def toSnapRow(textIn, website=None, created_at=None):
     #mine url
     rawUrls=_grabUrl.findall(textIn)
     filteredUrls=list(filter(lambda x:not x.startswith("/static/"),rawUrls))
-    #urlObjs=map(_toUrlObj,filteredUrls)
-    #onlyRow=Row(urls=filteredUrls, text=_text)
-    return [filteredUrls, _text]
-
+    urlObjs=list(map(_toUrlObj,filteredUrls))
+    onlyRow=Row(urls=filteredUrls, text=_text)
+    return onlyRow
 
 ## -- call functions
 
@@ -78,8 +77,7 @@ def buildDataFrame(websiteSnaps, sparkContext=None):
     _sc=sparkContext if sparkContext else SparkDo.devContext()
     _rdd=_sc.parallelize([websiteSnaps])
     _snapsRdd=_rdd.flatMap(lambda x: toSnapRow(x))
-    print(_snapsRdd.collect())
-
     # build DataFrame
-    # dataFrame=self._sqlContext.createDataFrame(_snapsRdd)
-    # dataFrame.show()
+    _sqlContext=SQLContext(_sc)
+    dataFrame=_sqlContext.createDataFrame(_snapsRdd)
+    dataFrame.show()
