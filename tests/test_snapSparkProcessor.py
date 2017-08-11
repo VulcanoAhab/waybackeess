@@ -2,8 +2,11 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.getcwd()))
 
+
 import unittest
-from snapSparkProcessor import Basic
+import snapSparkProcessor
+from sparkUtils import SparkDo
+# from snapSparkProcessor import buildDataFrame
 
 class TestBasic(unittest.TestCase):
     """
@@ -15,7 +18,6 @@ class TestBasic(unittest.TestCase):
         self._fd=open("testSnapHtml.txt")
         self.rawSnap=self._fd.read()
         self._fd.close
-        self._basic=Basic(self.rawSnap)
         #full count
         self.refsCount=self.rawSnap.count("href=")
         self.srcCount=self.rawSnap.count("src=")
@@ -27,19 +29,19 @@ class TestBasic(unittest.TestCase):
             "href":self.refsCount-self.WayRefsCount,
             "src":self.srcCount-self.WaySrcCount
         }
+        SparkDo.setAppName("waybackeess")
+        self._sc=SparkDo.devTestContext()
 
     def tearDown(self):
         """
         just in case and to avoid warnings
         """
         self._fd.close()
-        self._basic.close()
 
     def test_processors(self):
         """
         """
-        self._basic.processUrls()
-        self._basic.processWords()
+        snapSparkProcessor.buildDataFrame(self.rawSnap, sparkContext=self._sc)
 
 # == command line
 if __name__ == "__main__":
