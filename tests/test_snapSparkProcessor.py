@@ -4,7 +4,7 @@ sys.path.append(os.path.dirname(os.getcwd()))
 
 
 import unittest
-import snapSparkProcessor
+from  snapSparkProcessor import transformAndSaveSnaps
 from sparkUtils import SparkDo
 # from snapSparkProcessor import buildDataFrame
 
@@ -41,7 +41,7 @@ class TestBasic(unittest.TestCase):
     def test_processors(self):
         """
         """
-        snapSparkProcessor.buildDataFrame(self.rawSnap, sparkContext=self._sc)
+        transformAndSaveSnaps(self.rawSnap, sparkContext=self._sc)
 
 # == command line
 if __name__ == "__main__":

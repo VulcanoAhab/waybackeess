@@ -1,5 +1,6 @@
 
 import re
+import os
 import string
 import datetime
 import tldextract
@@ -9,10 +10,10 @@ from operator import add
 
 from sparkUtils import SparkDo
 
+from pyspark.sql.types import *
 from pyspark.sql.functions import udf
-from pyspark.sql import Row, SQLContext
+from pyspark.sql import Row, SparkSession
 from pyspark import SparkContext, SparkConf
-from pyspark.sql.types import StringType, TimestampType
 
 # == helpers functions
 
@@ -42,7 +43,8 @@ def _toUrlObj(urlIn):
     cleanUrl=_wayLink.sub("", urlIn)
     _exResult=_tdlex(urlIn)
     domain=_exResult.registered_domain
-    return Row(url=cleanUrl, domain=domain)
+    return {"url":cleanUrl,
+            "domain":domain}
 
 
 
@@ -65,19 +67,38 @@ def toSnapRow(textIn, website=None, created_at=None):
     rawUrls=_grabUrl.findall(textIn)
     filteredUrls=list(filter(lambda x:not x.startswith("/static/"),rawUrls))
     urlObjs=list(map(_toUrlObj,filteredUrls))
-    onlyRow=Row(urls=filteredUrls, text=_text)
+    onlyRow=Row(urlsMap=urlObjs,
+                text=_text,
+                raw=textIn,
+                createad_at=created_at,
+                website=website)
     return onlyRow
+
+def saveRddEs(SnapRdd):
+    """
+    """
+    SnapRdd.saveAsNewAPIHadoopFile(
+    path='-',
+    outputFormatClass="org.elasticsearch.hadoop.mr.EsOutputFormat",
+    keyClass="org.apache.hadoop.io.NullWritable",
+    valueClass="org.elasticsearch.hadoop.mr.LinkedMapWritable",
+    conf={ "es.resource" : "waybackeess/testrun" })
 
 ## -- call functions
 
-def buildDataFrame(websiteSnaps, sparkContext=None):
+def transformAndSaveSnaps(websiteSnaps, sparkContext=None):
     """
     """
+    #build context and transform data
     SparkDo.setAppName="waybackeess"
     _sc=sparkContext if sparkContext else SparkDo.devContext()
     _rdd=_sc.parallelize([websiteSnaps])
     _snapsRdd=_rdd.flatMap(lambda x: toSnapRow(x))
-    # build DataFrame
-    _sqlContext=SQLContext(_sc)
-    dataFrame=_sqlContext.createDataFrame(_snapsRdd)
-    dataFrame.show()
+    #save
+    #saveRddEs(_snapsRdd)
+    _snapsRdd.saveAsNewAPIHadoopFile(
+    path='-',
+    outputFormatClass="org.elasticsearch.hadoop.mr.EsOutputFormat",
+    keyClass="org.apache.hadoop.io.NullWritable",
+    valueClass="org.elasticsearch.hadoop.mr.LinkedMapWritable",
+    conf={ "es.resource" : "waybackeess/testrun" })

@@ -16,9 +16,6 @@ class SparkDo:
     def devContext(cls):
         """
         """
-        #quiet context
-        logger = logging.getLogger('py4j')
-        logger.setLevel(logging.WARN)
 
         _conf = SparkConf()
         _conf.set("spark.executor.memory", "1g")
@@ -27,16 +24,16 @@ class SparkDo:
                                             "snapSparkProcessor.py",
                                             "sparkUtils.py"
                                                 ])
+        #quiet context
+        logger = logging.getLogger('py4j')
+        logger.setLevel(logging.WARN)
+
         return _sc
 
     @classmethod
     def devTestContext(cls):
         """
         """
-        #quiet context
-        logger = logging.getLogger('py4j')
-        logger.setLevel(logging.WARN)
-
         _conf = SparkConf()
         _conf.set("spark.executor.memory", "1g")
         _conf.set("spark.app.name", cls._appName)
@@ -44,4 +41,8 @@ class SparkDo:
                                         "../snapSparkProcessor.py",
                                         "../sparkUtils.py",
                                         ])
+        #quiet context
+        logger = logging.getLogger('py4j')
+        logger.setLevel(logging.WARN)
+
         return _sc
