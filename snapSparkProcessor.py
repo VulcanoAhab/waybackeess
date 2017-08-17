@@ -82,7 +82,7 @@ def saveRddEs(SnapRdd):
     outputFormatClass="org.elasticsearch.hadoop.mr.EsOutputFormat",
     keyClass="org.apache.hadoop.io.NullWritable",
     valueClass="org.elasticsearch.hadoop.mr.LinkedMapWritable",
-    conf={ "es.resource" : "waybackeess/testrun" })
+    conf={ "es.resource" : "waybackeess/sites" })
 
 ## -- call functions
 
@@ -101,4 +101,7 @@ def transformAndSaveSnaps(websiteSnaps, sparkContext=None):
     outputFormatClass="org.elasticsearch.hadoop.mr.EsOutputFormat",
     keyClass="org.apache.hadoop.io.NullWritable",
     valueClass="org.elasticsearch.hadoop.mr.LinkedMapWritable",
-    conf={ "es.resource" : "waybackeess/testrun" })
+    conf={
+        "es.resource" : "waybackeess/testrun"
+        }
+    )
